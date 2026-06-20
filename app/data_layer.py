@@ -2,6 +2,7 @@ import os
 from supabase import Client, create_client
 import numpy as np
 import pandas as pd
+import env
 
 
 class DataLayer:
@@ -9,9 +10,8 @@ class DataLayer:
     value = 20
 
     def __init__(self): #Supabase connections
-        url = "https://ifwbciqfpxccapdmqhmy.supabase.co"
-        key = "sb_publishable_V_Fn1Ra9C8BqWNrI-HHHjA_gxiu_IXb"
-        self.supabase: Client = create_client(url, key)
+        config = env.Config()
+        self.supabase: Client = create_client(config.url, config.key)
 
 
     def get_training_data_sp(self):
