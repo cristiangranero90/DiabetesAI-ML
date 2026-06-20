@@ -39,7 +39,7 @@ class SimpleSVCModel:
 
     def train(self):
         val_x, val_y = self.prepare_data()
-        X_train, self.x_test, y_train , self.y_test = train_test_split(val_x, val_y, test_size=0.5, random_state=42)       
+        X_train, self.x_test, y_train , self.y_test = train_test_split(val_x, val_y, test_size=0.2, random_state=42)       
         self.model.fit(X_train.values, y_train.values.ravel())
         self.is_trained = True
 

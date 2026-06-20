@@ -1,3 +1,4 @@
+import os
 from supabase import Client, create_client
 import numpy as np
 import pandas as pd

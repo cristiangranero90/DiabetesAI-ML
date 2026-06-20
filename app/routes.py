@@ -33,9 +33,11 @@ def predict():
     
     try:
         accuracy, prediction = model.predict_fun(features)
+        data.update({"Outcome": prediction[0]})
         data_layer.insertValue(data)
         return jsonify({'prediction': prediction, 'confidence': accuracy})
     except Exception as e:
+        print("estoy aca")
         print(str(e))
         return jsonify({'error': str(e)}), 500
     
